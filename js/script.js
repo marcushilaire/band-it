@@ -17,12 +17,13 @@ var bandIs = function (){
             var city = $("<p>").text(venue.city);
             var name = $("<p>").text(venue.name).attr({
                 "class": "venue", 
-                // Venue location information  is set to the the data types below
+                // Venue location information is set to the the data types below
                 "data-venue": venue.name,
                 "data-city": venue.city,
                 "data-lat": lat,
                 "data-long": long
             });
+            // render the information to the html page, this will be adjusted 
             div.append(city, name);
             $("body").append(div);
         }
@@ -30,7 +31,7 @@ var bandIs = function (){
 }
 bandIs();
 
-// This is testing to make sure that the data types were
+// This is testing to make sure that the data types were set correctly
 $(document).on("click", ".venue", function(){
     var lati = $(this).attr("data-lat")
     var longi = $(this).attr("data-long")
