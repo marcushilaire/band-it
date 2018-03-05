@@ -28,17 +28,17 @@ app.post("/yelp", function(req, res){
     var searchedArr=[];
     for (var i = 0; i < response.length; i++) {
       // searching restaurant and bar that has rating greater than 3 and stop when we have 5 stores
-      if (response.rating>3 && searchedArr.length<5) {
+      if (response.businesses[i].rating>3 && searchedArr.businesses.length<5) {
         // making json object of yelp result
         var searchedJson={
-          name: response.name,
-          img: response.image_url,
-          yelp: response.url,
-          rating: response.rating,
-          coordinates: response.coordinates,
-          price: response.price,
-          address: response.location.display_address,
-          phone: response.display_phone
+          name: response.businesses[i].name,
+          img: response.businesses[i].image_url,
+          yelp: response.businesses[i].url,
+          rating: response.businesses[i].rating,
+          coordinates: response.businesses[i].coordinates,
+          price: response.businesses[i].price,
+          address: response.businesses[i].location.display_address,
+          phone: response.businesses[i].display_phone
         }
         searchedArr.push(searchedJson);
       }
