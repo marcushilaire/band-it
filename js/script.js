@@ -25,6 +25,24 @@ var bandIs = function (){
         }
     })
 }
+var yelpfunction= function(){
+  // function that occurs when the user pick a single venue
+  $(".venue").on("click", function(){
+    var lati = $(this).attr("data-lat")
+    var longi = $(this).attr("data-long")
+    var userSelects="bar, restaurant"; //have user select which catagory to select in html so they can choose what stores
+
+    var newSearchRequest= {
+      categories: userSelects,
+      latitude: lati,
+      longitude: longi
+    }
+    $.post("/yelp", newSearchRequest, function(data){
+      // console loging all the data as array and json object
+      console.log(data);
+    });
+  })
+}
 bandIs();
 $(document).on("click", ".venue", function(){
     var lati = $(this).attr("data-lat")
