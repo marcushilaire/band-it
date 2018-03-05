@@ -19,14 +19,33 @@ var client = yelp.client(apiKey);
 app.post("/yelp", function(req, res){
   // getting param from html
   var searchRequest= {
-    term: req.body.term,
-    location: req.body.location
+    categories: req.body.categories,
+    latitude: req.body.latitude,
+    longitude: req.body.longitude
   }
 
   client.search(searchRequest).then(response => {
-    const firstResult = response.jsonBody.businesses[0];
-    res.json(response);
-    console.log(response);
+    var searchedArr=[];
+    for (var i = 0; i < response.length; i++) {
+      // searching restaurant and bar that has rating greater than 3 and stop when we have 5 stores
+      if (response.rating>3 && searchedArr.length<5) {
+        // making json object of yelp result
+        var searchedJson={
+          name: response.name,
+          img: response.image_url,
+          yelp: response.url,
+          rating: response.rating,
+          coordinates: response.coordinates,
+          price: response.price,
+          address: response.location.display_address,
+          phone: response.display_phone
+        }
+        searchedArr.push(searchedJson);
+      }
+    }
+    // sending back to front end as "data"
+    res.json(searchedArr);
+    console.log(searchedArr);
   });
 })
 
