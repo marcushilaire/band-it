@@ -1,5 +1,6 @@
 var bandIs = function (){
-    var bandQuery = "run river north"
+    var bandQuery = $("#bandName").val()
+    //  the bandQuery variable will be updated to take in user input
     var queryURL = "https://rest.bandsintown.com/artists/" + bandQuery + "/events?app_id=bandit"
     //  band is in town api
     $.ajax({
@@ -15,6 +16,8 @@ var bandIs = function (){
             var lat = venue.latitude;
             var long = venue.longitude;
             var name = $("<p>").text(venue.name).attr({
+                // setting data types to the venue so that 
+                "data-city": venue.city,
                 "class": "venue",
                 "data-lat": lat,
                 "data-long": long
@@ -26,6 +29,8 @@ var bandIs = function (){
     })
 }
 bandIs();
+
+// 
 $(document).on("click", ".venue", function(){
     var lati = $(this).attr("data-lat")
     var longi = $(this).attr("data-long")
