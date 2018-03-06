@@ -2,7 +2,8 @@ var bandIs = function (){
   var name = window.location.href;
   var thing= name.split("/")
   var lastUrl= thing[thing.length-1];
-    var bandQuery = lastUrl;
+  console.log(lastUrl);
+    var bandQuery = $("#bandName").val();
 
     console.log(bandQuery);
     // testing variable
@@ -64,6 +65,7 @@ var yelpfunction= function(){
   })
 }
 $("#submitBtn").on("click", function(event){
+    event.preventDefault();
     if($("#bandName").val() !== ""){
       var bandname = $("#bandName").val();
       window.location.href = `/${bandname}`;
