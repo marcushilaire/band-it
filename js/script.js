@@ -1,5 +1,7 @@
 var bandIs = function (){
-    var bandQuery = $("#bandName").val()
+    // var bandQuery = $("#bandName").val()
+    // testing variable
+    var bandQuery = "Run River North"
     //  Takes in user input
     var queryURL = "https://rest.bandsintown.com/artists/" + bandQuery + "/events?app_id=bandit"
     //  band is in town api
@@ -13,18 +15,23 @@ var bandIs = function (){
             var venue = resultsEvent[i].venue;
             var lat = venue.latitude;
             var long = venue.longitude;
-            var div = $("<div>");
+            var line = $("<hr>")
+            var div = $("<div>").attr({
+                "id": venue.name,
+                "class": "event",           
+            });
             var city = $("<p>").text(venue.city);
             var name = $("<p>").text(venue.name).attr({
                 "class": "venue", 
                 // Venue location information is set to the the data types below
                 "data-venue": venue.name,
+                "data-date": resultsEvent[i].datetime,
                 "data-city": venue.city,
                 "data-lat": lat,
                 "data-long": long
             });
             // render the information to the html page, this will be adjusted 
-            div.append(city, name);
+            div.append(line, city, name);
             $("body").append(div);
         }
     })
@@ -37,4 +44,7 @@ $(document).on("click", ".venue", function(){
     var longi = $(this).attr("data-long")
     console.log(lati)
     console.log(longi)
+    console.log($(this).attr("data-venue"))
+    console.log($(this).attr("data-date"))
+    console.log($(this).attr("data-city"))
 })
