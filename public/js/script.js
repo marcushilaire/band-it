@@ -2,20 +2,16 @@ var bandIs = function (){
   var name = window.location.href;
   var thing= name.split("/")
   var lastUrl= thing[thing.length-1];
-  console.log(lastUrl);
-    var bandQuery = $("#bandName").val();
 
-    console.log(bandQuery);
-    // testing variable
-    // var bandQuery = "Run River North"
-    //  Takes in user input
+    var bandQuery = lastUrl;
+
     var queryURL = "https://rest.bandsintown.com/artists/" + bandQuery + "/events?app_id=bandit"
     //  band is in town api
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(resultsEvent){
-      console.log('reun');
+
         // looping through the array of upcoming events
         for ( var i =0; i<resultsEvent.length; i++){
             console.log(resultsEvent[i])
