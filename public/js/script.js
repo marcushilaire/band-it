@@ -1,3 +1,4 @@
+
 var bandIs = function (){
   var name = window.location.href;
   var thing= name.split("/")
@@ -36,14 +37,21 @@ var bandIs = function (){
             // render the information to the html page, this will be adjusted
             div.append(line, city, name);
             // this ajax call works but is currently being appended to a placeholder that does not exist
-            $("#placeholderDiv").append(div);
-        }
+            $("#artistLocation").append(div);
 
+        }
+        yelpfunction();
     })
 }
-var yelpfunction= function(){
+//var yelpfunction= function(){
   // function that occurs when the user pick a single venue
+
+  $(".venue").on("click",function(){
+    console.log("YOOOOOOOOO")
+  });
+var yelpfunction=function(){
   $(".venue").on("click", function(){
+    console.log("click");
     var lati = $(this).attr("data-lat")
     var longi = $(this).attr("data-long")
     var userSelects="bar, restaurant"; //have user select which catagory to select in html so they can choose what stores
@@ -53,13 +61,15 @@ var yelpfunction= function(){
       latitude: lati,
       longitude: longi
     }
-    $.post("/yelp", newSearchRequest, function(data){
+    $.post("/yelp", newSearchRequest, function(req,res){
       // console loging all the data as array and json object
-      console.log(data);
+      console.log("done yelp"+res);
       // use this to get google map intergration and info we want to give out as output for all the store info
     });
-  })
+  });
 }
+
+
 $("#submitBtn").on("click", function(event){
     event.preventDefault();
     if($("#bandName").val() !== ""){
@@ -69,15 +79,16 @@ $("#submitBtn").on("click", function(event){
 })
 
 // This is testing to make sure that the data types were set correctly
-$(document).on("click", ".venue", function(){
-  var bandQuery = $("#bandName").val();
-  window.location.href = `/${bandQuery}`;
-    var lati = $(this).attr("data-lat")
-    var longi = $(this).attr("data-long")
-    console.log(lati)
-    console.log(longi)
-    console.log($(this).attr("data-venue"))
-    console.log($(this).attr("data-date"))
-    console.log($(this).attr("data-city"))
-})
+// $(document).on("click", ".venue", function(){
+//   var bandQuery = $("#bandName").val();
+//   window.location.href = `/${bandQuery}`;
+//     var lati = $(this).attr("data-lat")
+//     var longi = $(this).attr("data-long")
+//     console.log(lati)
+//     console.log(longi)
+//     console.log($(this).attr("data-venue"))
+//     console.log($(this).attr("data-date"))
+//     console.log($(this).attr("data-city"))
+// })
 bandIs();
+//yelpfunction();
