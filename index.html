@@ -23,30 +23,29 @@
             <div class="mainContent">
               <h1 class="mb-2">Band-It</h1>
               <p class="pb-2">See your favorite bands live. Search their upcoming concerts and get recommendations for bars and restaurants near the concert venue before the show.</p>
-              <form class="">
+
                 <div class="input-group">
                   <input id="bandName" class="form-control searchInput" type="text" name="bandName" value="" placeholder="Enter your favorite band or artist">
                   <button id="submitBtn" class="btn btn-secondary submitButton"type="button" name="button">See Venues</button>
                 </div>
-              </form>
+
             </div>
           </div>
         </div>
       </div>
 
-    <!-- inline javascript to read the on click submitBtn -->
-    <script>
-      $("#submitBtn").on("click", function(event){
-          if($("#bandName").val() !== ""){
-            var bandname = $("#bandName").val();
-            window.location.href = `/${bandname}`;
-          }
-      })
-    </script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $("#submitBtn").on("click", function(event){
+        event.preventDefault();
+        if($("#bandName").val().trim() !== ""){
+          var bandname = $("#bandName").val().trim().split(" ").join("+");
+
+          window.location.href = `/${bandname}`;
+        }
+    })
+    </script>
   </body>
 </html>

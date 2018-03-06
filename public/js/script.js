@@ -2,19 +2,16 @@ var bandIs = function (){
   var name = window.location.href;
   var thing= name.split("/")
   var lastUrl= thing[thing.length-1];
+
     var bandQuery = lastUrl;
 
-    console.log(bandQuery);
-    // testing variable
-    // var bandQuery = "Run River North"
-    //  Takes in user input
     var queryURL = "https://rest.bandsintown.com/artists/" + bandQuery + "/events?app_id=bandit"
     //  band is in town api
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(resultsEvent){
-      console.log('reun');
+
         // looping through the array of upcoming events
         for ( var i =0; i<resultsEvent.length; i++){
             console.log(resultsEvent[i])
@@ -64,6 +61,7 @@ var yelpfunction= function(){
   })
 }
 $("#submitBtn").on("click", function(event){
+    event.preventDefault();
     if($("#bandName").val() !== ""){
       var bandname = $("#bandName").val();
       window.location.href = `/${bandname}`;
