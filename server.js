@@ -42,31 +42,34 @@ app.post("/yelp", function(req, res){
   }
   var searchedArr=[];
   client.search(searchRequest).then(response => {
-    var res= response.jsonBody;
-    console.log(res.businesses.length);
-    for (var i = 0; i < res.businesses.length; i++) {
+    var r= response.jsonBody.businesses;
+    console.log(r.length);
+    for (var i = 0; i < r.length; i++) {
       // searching restaurant and bar that has rating greater than 3 and stop when we have 5 stores
-      if (res.businesses[i].rating>3 && searchedArr.length<5) {
+      if (r[i].rating>3 && searchedArr.length<5) {
         // making json object of yelp result
         var searchedJson={
-          name: res.businesses[i].name,
-          img: res.businesses[i].image_url,
-          yelp: res.businesses[i].url,
-          rating: res.businesses[i].rating,
-          coordinates: res.businesses[i].coordinates,
-          price: res.businesses[i].price,
-          address: res.businesses[i].location.display_address,
-          phone: res.businesses[i].display_phone
+          name: r[i].name,
+          img: r[i].image_url,
+          yelp: r[i].url,
+          rating: r[i].rating,
+          coordinates: r[i].coordinates,
+          price: r[i].price,
+          address: r[i].location.display_address,
+          phone: r[i].display_phone
         }
 
         searchedArr.push(searchedJson);
-        console.log(searchedArr);
       }
     }
+    ressend();
     // sending back to front end as "data"
   });
+  var ressend=function(){
+    res.send(searchedArr);
+  }
 
-  res.json(searchedArr);
+
 })
 
 

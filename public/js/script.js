@@ -61,9 +61,9 @@ var yelpfunction=function(){
       latitude: lati,
       longitude: longi
     }
-    $.post("/yelp", newSearchRequest, function(req,res){
+    $.post("/yelp", newSearchRequest, function(data){
       // console loging all the data as array and json object
-      console.log("done yelp"+res);
+      console.log(data);
       // use this to get google map intergration and info we want to give out as output for all the store info
     });
   });
