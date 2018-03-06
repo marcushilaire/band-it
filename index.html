@@ -11,6 +11,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href=".public/css/style.css">
+
     <title>Band It</title>
   </head>
   <body>
@@ -22,15 +23,26 @@
             <div class="mainContent">
               <h1 class="mb-2">Band-It</h1>
               <p class="pb-2">See your favorite bands live. Search their upcoming concerts and get recommendations for bars and restaurants near the concert venue before the show.</p>
-              <div class="input-group">
-                <input id="bandName" class="form-control searchInput" type="text" name="bandName" value="" placeholder="Enter your favorite band or artist">
-                <button id="submitBtn" class="btn btn-secondary submitButton"type="button" name="button">See Venues</button>
-              </div>
+              <form class="">
+                <div class="input-group">
+                  <input id="bandName" class="form-control searchInput" type="text" name="bandName" value="" placeholder="Enter your favorite band or artist">
+                  <button id="submitBtn" class="btn btn-secondary submitButton"type="button" name="button">See Venues</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
 
+    <!-- inline javascript to read the on click submitBtn -->
+    <script>
+      $("#submitBtn").on("click", function(event){
+          if($("#bandName").val() !== ""){
+            var bandname = $("#bandName").val();
+            window.location.href = `/${bandname}`;
+          }
+      })
+    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
