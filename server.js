@@ -2,6 +2,7 @@ var yelp = require('yelp-fusion');
 var express= require("express");
 var bodyParser = require("body-parser")
 var path = require("path");
+var fs =require("fs");
 var app = express();
 
 // Sets an initial port. We"ll use this later in our listener
@@ -11,6 +12,7 @@ var PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "./index.html"));
   });
@@ -21,6 +23,8 @@ app.get("/band/", function(req, res) {
 app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "./index.html"));
   });
+
+
 // yelp search using node
 var apiKey = '-LJE5gdMKh7r6T5o7m7eg3q02j_lbmsiS0GEW57DcF0ucR9PdtP_CGJ1Ceq-JipoX9XyG9oThAb8snqi3bYmS0YLOVxUtHZAdlssf3tHikHmK1jTgJaw8nNjiw6TWnYx';
 var client = yelp.client(apiKey);
