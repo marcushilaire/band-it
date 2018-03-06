@@ -1,7 +1,8 @@
+
 var bandIs = function (){
-    // var bandQuery = $("#bandName").val()
+    var bandQuery = $("#bandName").val()
     // testing variable
-    var bandQuery = "Run River North"
+    // var bandQuery = "Run River North"
     //  Takes in user input
     var queryURL = "https://rest.bandsintown.com/artists/" + bandQuery + "/events?app_id=bandit"
     //  band is in town api
@@ -32,7 +33,8 @@ var bandIs = function (){
             });
             // render the information to the html page, this will be adjusted 
             div.append(line, city, name);
-            $("body").append(div);
+            // this ajax call works but is currently being appended to a placeholder that does not exist
+            $("#placeholderDiv").append(div);
         }
     })
 }
@@ -55,7 +57,10 @@ var yelpfunction= function(){
     });
   })
 }
-bandIs();
+$("#submitBtn").on("click", function(event){
+    if($("#bandName").val() !== "")
+    bandIs()
+})
 
 // This is testing to make sure that the data types were set correctly
 $(document).on("click", ".venue", function(){
