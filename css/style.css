@@ -11,6 +11,11 @@ body {
   background-size: cover;
 }
 
+img {
+  border-radius: 50%;
+}
+
+
 .mainContentOverlay {
   height: 100%;
   width: 100%;
@@ -71,5 +76,6 @@ body {
   padding: 0;
   margin-bottom: 1rem;
 }
+
 
 }
