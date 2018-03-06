@@ -43,6 +43,12 @@ body {
   border-bottom-left-radius: 0;
   background-color: #22b800;
 }
+  .submitButton:hover {
+    background-color: #222;
+    -webkit-transition: background-color 400ms linear;
+    -ms-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+  }
 
 @media (max-width: 767px) {
 
