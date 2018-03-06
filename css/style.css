@@ -1,3 +1,26 @@
 html{
   height: 100%;
 }
+
+body {
+  color: white;
+  height: 100%;
+  position: relative;
+  background-image: url("../images/band-it.jpg");
+  background-size: cover;
+}
+
+.mainContentOverlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.mainContent {
+  
+}
