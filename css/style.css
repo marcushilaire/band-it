@@ -1,0 +1,75 @@
+html {
+  height: 100%;
+}
+
+body {
+  color: #fff;
+  font-family: 'Merriweather Sans', sans-serif;
+  height: 100%;
+  position: relative;
+  background-image: url("../images/band-it.jpg");
+  background-size: cover;
+}
+
+.mainContentOverlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.mainContent {
+  width: 70%;
+}
+  .mainContent h1 {
+    font-family: 'Bungee Outline', cursive;
+    font-size: 4rem;
+    font-weight: 900;
+    padding-bottom: 1rem;
+  }
+  .mainContent p {
+    color: #ddd;
+    font-size: 1rem;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+.submitButton {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #22b800;
+}
+  .submitButton:hover {
+    background-color: #222;
+    -webkit-transition: background-color 400ms linear;
+    -ms-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+  }
+
+@media (max-width: 767px) {
+
+body {
+  background-image: url("../images/band-it-thin.jpg");
+  background-size: cover;
+}
+
+.mainContent {
+  width: 90%;
+}
+
+.mainContent h1 {
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+}
+
+.mainContent p {
+  font-size: 0.8rem;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+}
