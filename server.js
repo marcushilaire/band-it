@@ -23,9 +23,9 @@ app.get("/:bandName", function(req, res) {
   });
 
   // If no matching route is found default to home
-app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "./index.html"));
-  });
+// app.get("*", function(req, res) {
+//     res.sendFile(path.join(__dirname, "./index.html"));
+//   });
 
 
 // yelp search using node
@@ -40,30 +40,33 @@ app.post("/yelp", function(req, res){
     latitude: req.body.latitude,
     longitude: req.body.longitude
   }
-
+  var searchedArr=[];
   client.search(searchRequest).then(response => {
-    var searchedArr=[];
-    for (var i = 0; i < response.length; i++) {
+    var res= response.jsonBody;
+    console.log(res.businesses.length);
+    for (var i = 0; i < res.businesses.length; i++) {
       // searching restaurant and bar that has rating greater than 3 and stop when we have 5 stores
-      if (response.businesses[i].rating>3 && searchedArr.businesses.length<5) {
+      if (res.businesses[i].rating>3 && searchedArr.length<5) {
         // making json object of yelp result
         var searchedJson={
-          name: response.businesses[i].name,
-          img: response.businesses[i].image_url,
-          yelp: response.businesses[i].url,
-          rating: response.businesses[i].rating,
-          coordinates: response.businesses[i].coordinates,
-          price: response.businesses[i].price,
-          address: response.businesses[i].location.display_address,
-          phone: response.businesses[i].display_phone
+          name: res.businesses[i].name,
+          img: res.businesses[i].image_url,
+          yelp: res.businesses[i].url,
+          rating: res.businesses[i].rating,
+          coordinates: res.businesses[i].coordinates,
+          price: res.businesses[i].price,
+          address: res.businesses[i].location.display_address,
+          phone: res.businesses[i].display_phone
         }
+
         searchedArr.push(searchedJson);
+        console.log(searchedArr);
       }
     }
     // sending back to front end as "data"
-    res.json(searchedArr);
-    console.log(searchedArr);
   });
+
+  res.json(searchedArr);
 })
 
 
