@@ -1,48 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Require meta tags -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Band It | Band</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Outline|Changa+One|Merriweather+Sans:400,700,800" rel="stylesheet">
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Band It | Band</title>
 </head>
-<body>
     <!-- Beginning of Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Band It Logo</a>
+    <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href=""><h1 class="mb-2">Band It</h1></a>
+                </ul>
+            </div>
+            <div class="mx-auto order-0">
+                <a class="navbar-brand mx-auto" href="index.html"><img src="images/raccoon-guitar.jpg" width="65px" height="65px"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0" id="artistSearch">
+                            <input id="bandName" class="form-control searchInput" type="text" name="bandName" value="" placeholder="Enter your favorite band or artist">
+                            <button id="submitBtn" class="btn btn-secondary submitButton"type="button" name="button">See Venues</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    <!-- <nav class="navbar navbar-expand-lg">
+    <div class="navbar-inner">
+        <a class="navbar-brand" href="index.html"><img src="images/raccoon-guitar.jpg" width="75px" height="75px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="inputGroup">
         <form class="form-inline my-2 my-lg-0" id="artistSearch">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input id="bandName" class="form-control searchInput" type="text" name="bandName" value="" placeholder="Enter your favorite band or artist">
+        <button id="submitBtn" class="btn btn-secondary submitButton"type="button" name="button">See Venues</button>
         </form>
         </div>
-    </nav>
+        </div>
+    </div>
+    </nav> -->
     <!-- End of Navbar -->
 
+<body>
     <!-- Beginning of Content Body -->
     <div class="container">
+        <!-- First Row -->
         <div class="row">
-            <div class="col-md-4">
-                <p>Add Image of Band</p>
-            </div>
-            <div class="col-md-8">
-                <h1>Band Name</h1>
-                <p>Band Information</p>
-            </div>
-            </div>
+            <!-- Artist Image Div -->
+            <div class="col-md-4" id="artistImage"></div>
+            <!-- Arist Name and Information Div -->
+            <div class="col-md-8" id="artistName"></div>
+        </div>
+
+        <!-- Second Row -->
         <div class="row">
-            <div class="col-md-4">
-                <p>Date Location</p>
-            </div>
-        <div class="col-md-8" id="map">
-                <p>Interactive Map with Yelp and Google Maps API</p>    
-            </div>
+            <!-- Artist Location/Date Div -->
+            <div class="col-md-4" id="artistLocation"></div>
+            <!-- Artist Google/Yelp Div -->
+            <div class="col-md-8" id="artistMap"></div>
         </div>
     <!-- End of Content Body -->
 
