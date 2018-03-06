@@ -5,6 +5,7 @@ var path = require("path");
 var fs =require("fs");
 var app = express();
 
+
 // Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 8080;
 
@@ -17,9 +18,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "./index.html"));
   });
-app.get("/band/", function(req, res) {
+app.get("/:bandName", function(req, res) {
     res.sendFile(path.join(__dirname, "./results.html"));
   });
+
   // If no matching route is found default to home
 app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "./index.html"));

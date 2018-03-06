@@ -1,6 +1,10 @@
-
 var bandIs = function (){
-    var bandQuery = $("#bandName").val()
+  var name = window.location.href;
+  var thing= name.split("/")
+  var lastUrl= thing[thing.length-1];
+    var bandQuery = lastUrl;
+
+    console.log(bandQuery);
     // testing variable
     // var bandQuery = "Run River North"
     //  Takes in user input
@@ -10,6 +14,7 @@ var bandIs = function (){
         url: queryURL,
         method: "GET"
     }).then(function(resultsEvent){
+      console.log('reun');
         // looping through the array of upcoming events
         for ( var i =0; i<resultsEvent.length; i++){
             console.log(resultsEvent[i])
@@ -19,11 +24,11 @@ var bandIs = function (){
             var line = $("<hr>")
             var div = $("<div>").attr({
                 "id": venue.name,
-                "class": "event",           
+                "class": "event",
             });
             var city = $("<p>").text(venue.city);
             var name = $("<p>").text(venue.name).attr({
-                "class": "venue", 
+                "class": "venue",
                 // Venue location information is set to the the data types below
                 "data-venue": venue.name,
                 "data-date": resultsEvent[i].datetime,
@@ -31,11 +36,12 @@ var bandIs = function (){
                 "data-lat": lat,
                 "data-long": long
             });
-            // render the information to the html page, this will be adjusted 
+            // render the information to the html page, this will be adjusted
             div.append(line, city, name);
             // this ajax call works but is currently being appended to a placeholder that does not exist
             $("#placeholderDiv").append(div);
         }
+
     })
 }
 var yelpfunction= function(){
@@ -58,12 +64,16 @@ var yelpfunction= function(){
   })
 }
 $("#submitBtn").on("click", function(event){
-    if($("#bandName").val() !== "")
-    bandIs()
+    if($("#bandName").val() !== ""){
+      var bandname = $("#bandName").val();
+      window.location.href = `/${bandname}`;
+    }
 })
 
 // This is testing to make sure that the data types were set correctly
 $(document).on("click", ".venue", function(){
+  var bandQuery = $("#bandName").val();
+  window.location.href = `/${bandQuery}`;
     var lati = $(this).attr("data-lat")
     var longi = $(this).attr("data-long")
     console.log(lati)
@@ -72,3 +82,4 @@ $(document).on("click", ".venue", function(){
     console.log($(this).attr("data-date"))
     console.log($(this).attr("data-city"))
 })
+bandIs();
