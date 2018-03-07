@@ -62,11 +62,10 @@ img {
 
 .navbar {
   z-index: 10;
-  color: black;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
 }
-.nav-link h1{
-  color: black;
-}
+
 #artistLocation {
   color: black;
 }
@@ -75,18 +74,18 @@ img {
   width: 100%;
   height: 500px;
 }
-#yelpResults {
+ .card {
   width: 100%
 }
 .yelpImage {
   width: 100%;
 }
-.card-columns {
+/* .card-columns {
   display: inline-block;
   break-inside: avoid;
 
   width: 100%;
-}
+} */
 
 @media (max-width: 767px) {
 

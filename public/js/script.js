@@ -88,7 +88,7 @@ var yelpfunction=function(){
         $("#yelpResults").append('<div id="yelpResults" class="card text-center">' +
           '<img class="card-image-top yelpImage" src="'+data[i].img+'">' +
           '<div class="card-body">' +
-            '<h5 id="yelpName" class="card-title">' + yelpName + '</h5>' +
+            '<h4 id="yelpName" class="card-title">' + yelpName + '</h4>' +
             '<p id="add1" class="card-text">' + add1 + '</p>' +
             '<p id="add2" class="card-text">' + add2 + '</p>' +
             '<p id="add3" class="card-text">' + add3 + '</p>' +
