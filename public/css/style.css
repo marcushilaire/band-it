@@ -94,6 +94,9 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
 }
+#add1 {
+  margin-bottom: 0;
+}
 /* .card-columns {
   display: inline-block;
   break-inside: avoid;

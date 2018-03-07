@@ -1,4 +1,10 @@
+
+// global map variables
 var markers = [];
+var lati;
+var longi;
+var newVenue = "";
+var map;
 
 var bandIs = function (){
   var name = window.location.href;
@@ -54,14 +60,17 @@ var bandIs = function (){
 var yelpfunction=function(){
   $(".venue").on("click", function(){
     var newVenue = $(this).attr("data-venue")
-    console.log(newVenue);
     var lati = $(this).attr("data-lat")
     var longi = $(this).attr("data-long")
     var userSelects="bar, restaurant"; //have user select which catagory to select in html so they can choose what stores
+
+    console.log(newVenue);
     console.log(lati);
     console.log(longi);
     // clear yelp results on every click of venue
     $("#yelpResults").empty()
+    initMap(newVenue, lati, longi)
+    // addMarker(newVenue)
 
     var newSearchRequest= {
       categories: userSelects,
@@ -92,7 +101,7 @@ var yelpfunction=function(){
             '<h4 id="yelpName" class="card-title">' + yelpName + '</h4>' +
             '<p id="add1" class="card-text">' + add1 + '</p>' +
             '<p id="add2" class="card-text">' + add2 + '</p>' +
-            '<p id="add3" class="card-text">' + add3 + '</p>' +
+            // '<p id="add3" class="card-text">' + add3 + '</p>' +
             '<p id="yelpPhone" class="card-text">Phone: ' + yelpPhone + '</p>' +
             '<p id="yelpRating" class="card-text">Rating:' + yelpRating + '</p>' +
             '<p id="yelpPrice" class="card-text">' + yelpPrice + '</p>' +
@@ -131,16 +140,19 @@ bandIs();
 
 //* Google Maps JS *//
 // get goole map function with marker set desired location
-function initMap() {
-
-  var theAnthem = {lat: 38.8848049, lng: -77.0302294} // replace capitalGrill with venue lati and longi
+function initMap(newVenue, lati, longi) {
+  console.log(newVenue);
+  console.log(lati);
+  console.log(longi);
+  // var lati = 38.88848049
+  // var longi = -77.0302294
+  newVenue = {lat: parseFloat(lati), lng: parseFloat(longi)} // replace capitalGrill with venue lati and longi
   var map = new google.maps.Map(document.getElementById('artistMap'), {
     zoom: 14, // zoom in to neighborboods near the venue
-    center: theAnthem
+    center: newVenue
   });
-  // var image = 'https://png.icons8.com/color/50/000000/music.png'
   var marker = new google.maps.Marker({
-    position: theAnthem,
+    position: newVenue,
     map: map
     // icon: image,
 
@@ -180,9 +192,13 @@ function initMap() {
 // initMap()
 
 // Adds a marker to the map and push to the array.
-      function addMarker(location) {
+      function addMarker(newVenue) {
+        var map = new google.maps.Map(document.getElementById('artistMap'), {
+          zoom: 14, // zoom in to neighborboods near the venue
+          center: newVenue
+        });
         var marker = new google.maps.Marker({
-          position: location,
+          position: newVenue,
           map: map
         });
         markers.push(marker);
@@ -211,4 +227,8 @@ function initMap() {
         }
       }
 
+ // add markers to maps
+ function addMarkers() {
+
+ }
 //yelpfunction();
