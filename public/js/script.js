@@ -27,7 +27,8 @@ var bandIs = function (){
           alert("There is no concert or event set up for band :"+bandQuery);
         }
         for ( var i =0; i<resultsEvent.length; i++){
-            // console.log(resultsEvent[i])
+            console.log(resultsEvent[i])
+
             var date = resultsEvent[i].datetime;
         // looping through the array of upcoming events
 
@@ -53,6 +54,9 @@ var bandIs = function (){
                 "data-lat": lat,
                 "data-long": long
             });
+            if (i==0) {
+              initMap(venue.name, venue.latitude, venue.longitude);
+            };
             // render the information to the html page, this will be adjusted
             div.append(city, name, showtime, line);
             // this ajax call works but is currently being appended to a placeholder that does not exist
@@ -90,13 +94,10 @@ var yelpfunction=function(){
     $.post("/yelp", newSearchRequest, function(data){
       // console loging all the data as array and json object
       console.log(data);
-
+      var location = [];
       // loop to go log all data in the array
       for (var i = 0; i < data.length; i++) {
-        if (i === 0){
 
-        }
-        markers.push(data[i].cooordinates)
         var yelpResultsCard = $("<p>")
         var yelpImage = $("<img>")
         yelpImage.attr("src", data[i].img)
@@ -121,8 +122,11 @@ var yelpfunction=function(){
           '</div>' +
         '</div>' +
       '</div>')
-      }
+        location.push(data[i].coordinates);
 
+      }
+      console.log(location);
+      initMap(newVenue, lati, longi, location);
       // use this to get google map intergration and info we want to give out as output for all the store info
     });
   });
@@ -166,10 +170,10 @@ function initMapFirst() {
 } // endo initMapFirst function
 //* Google Maps JS *//
 // get goole map function with marker set desired location
-function initMap(newVenue, lati, longi) {
-  console.log(newVenue);
-  console.log(lati);
-  console.log(longi);
+function initMap(newVenue, lati, longi, location) {
+  console.log(location);
+
+
   // var lati = 38.88848049
   // var longi = -77.0302294
   newVenue = {lat: parseFloat(lati), lng: parseFloat(longi)} // replace capitalGrill with venue lati and longi
@@ -177,12 +181,29 @@ function initMap(newVenue, lati, longi) {
     zoom: 12, // zoom in to neighborboods near the venue
     center: newVenue
   });
-  var marker = new google.maps.Marker({
-    position: newVenue,
-    map: map
+  if (!location) {
+    var marker = new google.maps.Marker({
+      position: newVenue,
+      map: map
+    });
+  } else{
+    for (var i = 0; i < location.length; i++) {
+      location[i]
+      var marker = new google.maps.Marker({
+        position: newVenue,
+        map: map
+      });
+
+      for (i = 0; i < location.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(parseFloat(location[i].latitude), parseFloat(location[i].longitude)),
+          map: map
+        });
+    }
+  }
+}
     // icon: image,
 
-  })
 // content of clicking on the map marker.  Populate from yelp data later.
   var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
