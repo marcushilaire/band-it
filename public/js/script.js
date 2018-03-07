@@ -118,18 +118,15 @@ $("#submitBtn").on("click", function(event){
     }
 })
 
-// This is testing to make sure that the data types were set correctly
-// $(document).on("click", ".venue", function(){
-//   var bandQuery = $("#bandName").val();
-//   window.location.href = `/${bandQuery}`;
-//     var lati = $(this).attr("data-lat")
-//     var longi = $(this).attr("data-long")
-//     console.log(lati)
-//     console.log(longi)
-//     console.log($(this).attr("data-venue"))
-//     console.log($(this).attr("data-date"))
-//     console.log($(this).attr("data-city"))
-// })
+$("h1").on("click", function(event){
+  event.preventDefault();
+    window.location.href = `/`;
+})
+$(".logoImg").on("click", function(event){
+  event.preventDefault();
+    window.location.href = `/`;
+})
+
 bandIs();
 
 //* Google Maps JS *//
@@ -180,7 +177,7 @@ function initMap() {
     infowindow.open(map, marker)
   })
 }
-// initMap()
+initMap()
 
 // Adds a marker to the map and push to the array.
       function addMarker(location) {
