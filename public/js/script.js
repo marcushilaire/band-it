@@ -19,11 +19,12 @@ var bandIs = function (){
         url: queryURL,
         method: "GET"
     }).then(function(resultsEvent){
-      initMapFirst();
-
+        // populate map with preset coordinates to the Anthem in DC
+        initMapFirst();
         // looping through the array of upcoming events
         for ( var i =0; i<resultsEvent.length; i++){
             // console.log(resultsEvent[i])
+            var date = resultsEvent[i].datetime;
             var venue = resultsEvent[i].venue;
             var lat = venue.latitude;
             var long = venue.longitude;
@@ -32,8 +33,9 @@ var bandIs = function (){
                 "id": venue.name,
                 "class": "event",
             });
-            var city = $("<p>").text(venue.city);
-            var name = $("<p>").text(venue.name).attr({
+            var showtime = $("<p>").text("Date: " + date);
+            var city = $("<p>").text("City: " +venue.city);
+            var name = $("<p class='venueList'>").text("Venue: " + venue.name).attr({
                 "class": "venue",
                 // Venue location information is set to the the data types below
                 "data-venue": venue.name,
@@ -43,7 +45,7 @@ var bandIs = function (){
                 "data-long": long
             });
             // render the information to the html page, this will be adjusted
-            div.append(line, city, name);
+            div.append(city, name, showtime, line);
             // this ajax call works but is currently being appended to a placeholder that does not exist
             $("#artistLocation").append(div);
 
