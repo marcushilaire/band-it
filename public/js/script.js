@@ -19,12 +19,21 @@ var bandIs = function (){
         url: queryURL,
         method: "GET"
     }).then(function(resultsEvent){
+
         // populate map with preset coordinates to the Anthem in DC
         initMapFirst();
         // looping through the array of upcoming events
+      if (resultsEvent.length==0) {
+          alert("There is no concert or event set up for band :"+bandQuery);
+        }
         for ( var i =0; i<resultsEvent.length; i++){
             // console.log(resultsEvent[i])
             var date = resultsEvent[i].datetime;
+        // looping through the array of upcoming events
+
+
+            console.log(resultsEvent[i])
+
             var venue = resultsEvent[i].venue;
             var lat = venue.latitude;
             var long = venue.longitude;
@@ -56,18 +65,16 @@ var bandIs = function (){
 //var yelpfunction= function(){
   // function that occurs when the user pick a single venue
 
-  $(".venue").on("click",function(){
-    // console.log("YOOOOOOOOO")
-  });
-
 var yelpfunction=function(){
   $(".venue").on("click", function(){
+
     var newVenue = $(this).attr("data-venue")
     var lati = $(this).attr("data-lat")
     var longi = $(this).attr("data-long")
     var userSelects="bar, restaurant"; //have user select which catagory to select in html so they can choose what stores
 
     console.log(newVenue);
+
     console.log(lati);
     console.log(longi);
     // clear yelp results on every click of venue
@@ -124,24 +131,22 @@ var yelpfunction=function(){
 
 $("#submitBtn").on("click", function(event){
     event.preventDefault();
-    if($("#bandName").val() !== ""){
-      var bandname = $("#bandName").val();
+    if($("#bandName").val().trim() !== ""){
+      var bandname = $("#bandName").val().trim();
+
       window.location.href = `/${bandname}`;
     }
 })
 
-// This is testing to make sure that the data types were set correctly
-// $(document).on("click", ".venue", function(){
-//   var bandQuery = $("#bandName").val();
-//   window.location.href = `/${bandQuery}`;
-//     var lati = $(this).attr("data-lat")
-//     var longi = $(this).attr("data-long")
-//     console.log(lati)
-//     console.log(longi)
-//     console.log($(this).attr("data-venue"))
-//     console.log($(this).attr("data-date"))
-//     console.log($(this).attr("data-city"))
-// })
+$("h1").on("click", function(event){
+  event.preventDefault();
+    window.location.href = `/`;
+})
+$(".logoImg").on("click", function(event){
+  event.preventDefault();
+    window.location.href = `/`;
+})
+
 bandIs();
 
 // load map with preset venue first
@@ -210,7 +215,7 @@ function initMap(newVenue, lati, longi) {
     infowindow.open(map, marker)
   })
 }
-// initMap()
+initMap()
 
 // Adds a marker to the map and push to the array.
       function addMarker(newVenue) {
