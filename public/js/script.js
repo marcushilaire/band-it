@@ -18,7 +18,8 @@ var bandIs = function (){
         }
         // looping through the array of upcoming events
         for ( var i =0; i<resultsEvent.length; i++){
-            // console.log(resultsEvent[i])
+
+            console.log(resultsEvent[i])
             var venue = resultsEvent[i].venue;
             var lat = venue.latitude;
             var long = venue.longitude;
@@ -49,17 +50,15 @@ var bandIs = function (){
 //var yelpfunction= function(){
   // function that occurs when the user pick a single venue
 
-  $(".venue").on("click",function(){
-    // console.log("YOOOOOOOOO")
-  });
-
 var yelpfunction=function(){
   $(".venue").on("click", function(){
-    var newVenue = $(this).attr("data-venue")
+    var newVenue = $(this).attr("data-venue");
     console.log(newVenue);
-    var lati = $(this).attr("data-lat")
-    var longi = $(this).attr("data-long")
-    var userSelects="bar, restaurant"; //have user select which catagory to select in html so they can choose what stores
+    var lati = $(this).attr("data-lat");
+    var longi = $(this).attr("data-long");
+    checkBox();
+    var userSelects="bar", "restaurant";
+    console.log(userSelects);
     console.log(lati);
     console.log(longi);
     // clear yelp results on every click of venue
