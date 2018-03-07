@@ -74,6 +74,7 @@ var yelpfunction=function(){
 
       // loop to go log all data in the array
       for (var i = 0; i < data.length; i++) {
+        markers.push(data[i].cooordinates)
         var yelpResultsCard = $("<p>")
         var yelpImage = $("<img>")
         yelpImage.attr("src", data[i].img)
@@ -85,7 +86,7 @@ var yelpfunction=function(){
         var yelpPhone = data[i].phone
         var yelpPrice = data[i].price
         var yelpRating = data[i].rating
-        $("#yelpResults").append('<div id="yelpResults" class="card text-center">' +
+        $("#yelpResults").append('<div class="card text-center">' +
           '<img class="card-image-top yelpImage" src="'+data[i].img+'">' +
           '<div class="card-body">' +
             '<h4 id="yelpName" class="card-title">' + yelpName + '</h4>' +

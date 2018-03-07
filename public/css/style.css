@@ -15,7 +15,7 @@ body {
   color: black;
 }
 
-img {
+.logoImg {
   border-radius: 50%;
 }
 
@@ -78,6 +78,7 @@ img {
   width: 100%
 }
 .yelpImage {
+  background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
 }
 /* .card-columns {
@@ -89,7 +90,7 @@ img {
 
 @media (max-width: 767px) {
 
-body {
+.indexBody {
   background-image: url("../images/band-it-thin.jpg");
   background-size: cover;
 }
