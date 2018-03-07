@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="mx-auto order-0">
-                <a class="navbar-brand mx-auto" href="index.html"><img src="./images/raccoon-guitar.jpg" width="90px" height="90px"></a>
+                <a class="navbar-brand mx-auto" href="index.html"><img class="logoImg" src="./images/raccoon-guitar.jpg" width="90px" height="90px"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,6 +44,8 @@
     <!-- End of Navbar -->
 
 <body>
+  <!-- <div class="mainContentOverlay"></div> -->
+
     <!-- Beginning of Content Body -->
     <div class="container">
         <!-- First Row -->
@@ -57,10 +59,44 @@
         <!-- Second Row -->
         <div class="row">
             <!-- Artist Location/Date Div -->
-            <div class="col-md-4" id="artistLocation"></div>
+            <div class="col-md-4 venuesList" >
+              <div id="artistLocation" class="">
+
+              </div>
+            </div>
             <!-- Artist Google/Yelp Div -->
             <div class="col-md-8" id="artistMap"></div>
         </div>
+
+        <div class="row">
+            <div id="yelpResults" class="col card-columns">
+
+              </div>
+
+          </div>
+
+        </div>
+    <!-- yelp recommendations  -->
+        <!-- <div class="row yelpRow">
+          <div class="col">
+            <div id="yelpResultsCard" class="card-columns">
+              <div class="card">
+                <img id="yelpImage" class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 id="yelpName" class="card-title">Card title that wraps to a new line</h5>
+                  <p id="add1" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p id="add2" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p id="add3" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p id="yelpPhone" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p id="yelpRating" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p id="yelpPrice" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p id="yelpLink" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
     <!-- End of Content Body -->
 
 
@@ -68,6 +104,9 @@
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBP0npkBP6rdCu0Wy-Z4llSBsHOdrEQTJE&callback=initMap">
+      </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

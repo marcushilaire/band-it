@@ -46,7 +46,7 @@ app.post("/yelp", function(req, res){
     console.log(r.length);
     for (var i = 0; i < r.length; i++) {
       // searching restaurant and bar that has rating greater than 3 and stop when we have 5 stores
-      if (r[i].rating>3 && searchedArr.length<5) {
+      if (r[i].rating>3 && searchedArr.length<12) {
         // making json object of yelp result
         var searchedJson={
           name: r[i].name,
