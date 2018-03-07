@@ -13,7 +13,9 @@ var bandIs = function (){
         url: queryURL,
         method: "GET"
     }).then(function(resultsEvent){
-
+        if (resultsEvent.length==0) {
+          alert("There is no concert or event set up for band :"+bandQuery);
+        }
         // looping through the array of upcoming events
         for ( var i =0; i<resultsEvent.length; i++){
             // console.log(resultsEvent[i])
@@ -109,8 +111,9 @@ var yelpfunction=function(){
 
 $("#submitBtn").on("click", function(event){
     event.preventDefault();
-    if($("#bandName").val() !== ""){
-      var bandname = $("#bandName").val();
+    if($("#bandName").val().trim() !== ""){
+      var bandname = $("#bandName").val().trim();
+
       window.location.href = `/${bandname}`;
     }
 })
