@@ -57,7 +57,7 @@ var yelpfunction=function(){
     var lati = $(this).attr("data-lat");
     var longi = $(this).attr("data-long");
     checkBox();
-    var userSelects="bar", "restaurant";
+    var userSelects="bar, restaurant";
     console.log(userSelects);
     console.log(lati);
     console.log(longi);
