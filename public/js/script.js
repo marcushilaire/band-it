@@ -109,7 +109,7 @@ var yelpfunction=function(){
         var yelpPhone = data[i].phone
         var yelpPrice = data[i].price
         var yelpRating = data[i].rating
-        $("#yelpResults").append('<a href='+data[i].yelp+'><div class="card text-center">' +
+        $("#yelpResults").append('<a href='+data[i].yelp+' target="_blank"><div class="card text-center">' +
           '<img class="card-image-top yelpImage" src="'+data[i].img+'">' +
           '<div class="card-body yelpInfo">' +
             '<h4 id="yelpName" class="card-title">' + yelpName + '</h4>' +
