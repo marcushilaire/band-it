@@ -7,13 +7,28 @@ var newVenue = "";
 // var map;
 
 var bandIs = function (){
+
   var name = window.location.href;
   var thing= name.split("/")
   var lastUrl= thing[thing.length-1];
 
     var bandQuery = lastUrl;
 
-    var queryURL = "https://rest.bandsintown.com/artists/" + bandQuery + "/events?app_id=bandit"
+    var queryURL = "https://rest.bandsintown.com/artists/" + bandQuery + "/events?app_id=bandit";
+    var queryURL2 = "https://rest.bandsintown.com/artists/" + bandQuery + "?app_id=bandit";
+
+    $.ajax({
+        url: queryURL2,
+        method: "GET"
+    }).then(function(resultsEvent){
+      var image= resultsEvent.image_url;
+      var name= resultsEvent.name;
+      var newImage=$("<img>").attr({"src": image, "class": "img img-responsive img-fluid"});
+
+      var newName=$("<h1>").text(name);
+      $("#artistImage").append(newImage);
+      $("#artistName").append(newName);
+    });
     //  band is in town api
     $.ajax({
         url: queryURL,
