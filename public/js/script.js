@@ -178,7 +178,7 @@ function initMap(newVenue, lati, longi, location) {
   // var longi = -77.0302294
   newVenue = {lat: parseFloat(lati), lng: parseFloat(longi)} // replace capitalGrill with venue lati and longi
   var map = new google.maps.Map(document.getElementById('artistMap'), {
-    zoom: 12, // zoom in to neighborboods near the venue
+    zoom: 14, // zoom in to neighborboods near the venue
     center: newVenue
   });
   if (!location) {
