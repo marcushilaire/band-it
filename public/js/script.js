@@ -60,6 +60,8 @@ var yelpfunction=function(){
     var userSelects="bar, restaurant"; //have user select which catagory to select in html so they can choose what stores
     console.log(lati);
     console.log(longi);
+    // clear yelp results on every click of venue
+    $("#yelpResults").empty()
 
     var newSearchRequest= {
       categories: userSelects,
@@ -68,11 +70,14 @@ var yelpfunction=function(){
     }
     $.post("/yelp", newSearchRequest, function(data){
       // console loging all the data as array and json object
-      // console.log(data);
+      console.log(data);
 
       // loop to go log all data in the array
       for (var i = 0; i < data.length; i++) {
         var yelpResultsCard = $("<p>")
+        var yelpImage = $("<img>")
+        yelpImage.attr("src", data[i].img)
+        yelpImage.attr("class", "card-img-top")
         var yelpName = data[i].name
         var add1 = data[i].address[0]
         var add2 = data[i].address[1]
@@ -80,7 +85,19 @@ var yelpfunction=function(){
         var yelpPhone = data[i].phone
         var yelpPrice = data[i].price
         var yelpRating = data[i].rating
-        $("#yelpResults").append(yelpName, add1, add2, add3, yelpPhone)
+        $("#yelpResults").append('<div class="card">' +
+          yelpImage +
+          '<div class="card-body">' +
+            '<h5 id="yelpName" class="card-title">' + yelpName + '</h5>' +
+            '<p id="add1" class="card-text">' + add1 + '</p>' +
+            '<p id="add2" class="card-text">' + add2 + '</p>' +
+            '<p id="add3" class="card-text">' + add3 + '</p>' +
+            '<p id="yelpPhone" class="card-text">' + yelpPhone + '</p>' +
+            '<p id="yelpRating" class="card-text">' + yelpRating + '</p>' +
+            '<p id="yelpPrice" class="card-text">' + yelpPrice + '</p>' +
+          '</div>' +
+        '</div>' +
+      '</div>')
       }
 
       // use this to get google map intergration and info we want to give out as output for all the store info

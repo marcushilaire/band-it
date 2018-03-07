@@ -68,6 +68,10 @@ img {
   width: 100%;
   height: 500px;
 }
+.card-columnsf {
+  display: inline-block;
+  width: 100%;
+}
 
 @media (max-width: 767px) {
 
