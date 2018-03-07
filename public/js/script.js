@@ -88,7 +88,7 @@ var yelpfunction=function(){
         var yelpRating = data[i].rating
         $("#yelpResults").append('<div class="card text-center">' +
           '<img class="card-image-top yelpImage" src="'+data[i].img+'">' +
-          '<div class="card-body">' +
+          '<div class="card-body yelpInfo">' +
             '<h4 id="yelpName" class="card-title">' + yelpName + '</h4>' +
             '<p id="add1" class="card-text">' + add1 + '</p>' +
             '<p id="add2" class="card-text">' + add2 + '</p>' +
