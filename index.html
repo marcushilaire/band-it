@@ -22,7 +22,7 @@
           <div class="col-12" align=center>
             <div class="mainContent">
               <h1 class="mb-2">Band-It</h1>
-              <p class="pb-2">See your favorite bands live. Search their upcoming concerts and get recommendations for bars and restaurants near the concert venue before the show.</p>
+              <p class="pb-2">ee your favorite bands live. Search their upcoming concerts and get recommendations for bars and restaurants near the concert venue before the show.</p>
 
                 <div class="input-group">
                   <input id="bandName" class="form-control searchInput" type="text" name="bandName" value="" placeholder="Enter your favorite band or artist">
@@ -41,7 +41,7 @@
     $("#submitBtn").on("click", function(event){
         event.preventDefault();
         if($("#bandName").val().trim() !== ""){
-          var bandname = $("#bandName").val().trim().split(" ").join("+");
+          var bandname = $("#bandName").val().trim();
 
           window.location.href = `/${bandname}`;
         }
