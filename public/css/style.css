@@ -2,13 +2,17 @@ html {
   height: 100%;
 }
 
-body {
+.indexBody {
   /* color: #fff; */
   font-family: 'Merriweather Sans', sans-serif;
   height: 100%;
   position: relative;
   background-image: url("../images/band-it.jpg");
   background-size: cover;
+}
+
+body {
+  color: black;
 }
 
 img {
@@ -58,10 +62,13 @@ img {
 
 .navbar {
   z-index: 10;
+  color: black;
 }
-
+.nav-link h1{
+  color: black;
+}
 #artistLocation {
-  color: white;
+  color: black;
 }
 
 #artistMap {
@@ -78,6 +85,7 @@ img {
   display: inline-block;
   break-inside: avoid;
 
+  width: 100%;
 }
 
 @media (max-width: 767px) {
