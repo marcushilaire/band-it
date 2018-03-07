@@ -68,9 +68,16 @@ img {
   width: 100%;
   height: 500px;
 }
-.card-columnsf {
-  display: inline-block;
+#yelpResults {
+  width: 100%
+}
+.yelpImage {
   width: 100%;
+}
+.card-columns {
+  display: inline-block;
+  break-inside: avoid;
+
 }
 
 @media (max-width: 767px) {
@@ -95,6 +102,5 @@ body {
   padding: 0;
   margin-bottom: 1rem;
 }
-
 
 }
