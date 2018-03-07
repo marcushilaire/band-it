@@ -4,7 +4,7 @@ var markers = [];
 var lati;
 var longi;
 var newVenue = "";
-var map;
+// var map;
 
 var bandIs = function (){
   var name = window.location.href;
@@ -19,6 +19,7 @@ var bandIs = function (){
         url: queryURL,
         method: "GET"
     }).then(function(resultsEvent){
+      initMapFirst();
 
         // looping through the array of upcoming events
         for ( var i =0; i<resultsEvent.length; i++){
@@ -83,6 +84,9 @@ var yelpfunction=function(){
 
       // loop to go log all data in the array
       for (var i = 0; i < data.length; i++) {
+        if (i === 0){
+
+        }
         markers.push(data[i].cooordinates)
         var yelpResultsCard = $("<p>")
         var yelpImage = $("<img>")
@@ -138,6 +142,21 @@ $("#submitBtn").on("click", function(event){
 // })
 bandIs();
 
+// load map with preset venue first
+function initMapFirst() {
+
+  var theAnthem = {lat: 38.88848049, lng: -77.0302294} // replace capitalGrill with venue lati and longi
+  var map = new google.maps.Map(document.getElementById('artistMap'), {
+    zoom: 14, // zoom in to neighborboods near the venue
+    center: theAnthem
+  });
+  var marker = new google.maps.Marker({
+    position: theAnthem,
+    map: map
+    // icon: image,
+
+  })
+} // endo initMapFirst function
 //* Google Maps JS *//
 // get goole map function with marker set desired location
 function initMap(newVenue, lati, longi) {
@@ -148,7 +167,7 @@ function initMap(newVenue, lati, longi) {
   // var longi = -77.0302294
   newVenue = {lat: parseFloat(lati), lng: parseFloat(longi)} // replace capitalGrill with venue lati and longi
   var map = new google.maps.Map(document.getElementById('artistMap'), {
-    zoom: 14, // zoom in to neighborboods near the venue
+    zoom: 12, // zoom in to neighborboods near the venue
     center: newVenue
   });
   var marker = new google.maps.Marker({
@@ -194,7 +213,7 @@ function initMap(newVenue, lati, longi) {
 // Adds a marker to the map and push to the array.
       function addMarker(newVenue) {
         var map = new google.maps.Map(document.getElementById('artistMap'), {
-          zoom: 14, // zoom in to neighborboods near the venue
+          zoom: 10, // zoom in to neighborboods near the venue
           center: newVenue
         });
         var marker = new google.maps.Marker({
