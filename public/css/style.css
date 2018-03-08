@@ -73,7 +73,23 @@ html {
   font-size: 56px;
   font-weight: 900;
 }
-
+#dump{
+  /* overflow:auto */
+}
+#spotify{
+  width: 100%;
+  height: 100%;
+}
+.topTracks{
+  width: 100%;
+  height: 100%;
+  /* padding-bottom: 0; */
+  /* margin-bottom: 0; */
+}
+/* .tracks{
+  float: right;
+  margin: 5px;
+} */
 .submitButton {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -109,6 +125,7 @@ html {
   color: black;
   background-color: #e9ecefe3;
   max-height: 380px;
+  overflow: scroll;
 }
 
 #artistLocation {
