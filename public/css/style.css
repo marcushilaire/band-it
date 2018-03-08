@@ -69,6 +69,11 @@ html {
     margin-bottom: 2rem;
   }
 
+#heading {
+  font-size: 56px;
+  font-weight: 900;
+}
+
 .submitButton {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -123,17 +128,25 @@ html {
     text-decoration: underline;
   }
   .venue {
-    background-color: #48a8b6;
-    color: white;
-    border-radius: 5px;
-    padding: 5px 5px;
+    color: #48a8b6;
+    font-size: 1.3rem;
+    font-weight: bold;
     margin-bottom: 5px;
   }
     .venue:hover {
       cursor:pointer;
+      color: rgba(0, 0, 0, 0.6);
     }
   .city {
     margin-bottom: 5px;
+  }
+  .date {
+    margin-bottom: 5px;
+  }
+  .getTix {
+    background-color: #48a8b6!important;
+    color: #fff!important;
+    padding: 4px 6px!important;
   }
 
 #artistMap {

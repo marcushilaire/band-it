@@ -42,13 +42,26 @@ var bandIs = function (){
           alert("There is no concert or event set up for band :"+bandQuery);
         }
         for ( var i =0; i<resultsEvent.length; i++){
-            console.log(resultsEvent[i])
+            console.log(resultsEvent[i]);
+            var rawDate=resultsEvent[i].datetime.split("T");
+            var dateArr=[];
+            dateArr.push(rawDate[0]);
+            dateArr.push(" Time: ");
+            var time=rawDate[1].split(":");
+            if (time[0]>12){
+              time[0]-=12;
+              rawDate[1]=time.join(":");
+              dateArr.push(rawDate[1]);
+              dateArr.push("pm");
+            }else{
+              dateArr.push(rawDate[1]);
+              dateArr.push("am");
+            }
 
-            var date = resultsEvent[i].datetime;
+            var date = dateArr.join(" ");
+
         // looping through the array of upcoming events
 
-
-            console.log(resultsEvent[i])
 
             var venue = resultsEvent[i].venue;
             var lat = venue.latitude;
@@ -58,9 +71,11 @@ var bandIs = function (){
                 "id": venue.name,
                 "class": "event",
             });
-            var showtime = $("<p>").text("Date: " + date);
+            var ticket =$("<a class='btn bg-secondary getTix'>").text("GET Ticket");
+              ticket.attr({"href": resultsEvent[i].url, "target":"_blank"});
+            var showtime = $("<p class='date'>").text("Date: " + date);
             var city = $("<p class='city'>").text("City: " +venue.city);
-            var name = $("<button class='venueButtons'>").text(venue.name).attr({
+            var name = $("<p class='venueButtons'>").text(venue.name).attr({
                 "class": "venue",
                 // Venue location information is set to the the data types below
                 "data-venue": venue.name,
@@ -73,7 +88,7 @@ var bandIs = function (){
               initMap(venue.name, venue.latitude, venue.longitude);
             };
             // render the information to the html page, this will be adjusted
-            div.append(city, name, showtime, line);
+            div.append(city, name, showtime, ticket, line);
             // this ajax call works but is currently being appended to a placeholder that does not exist
             $("#artistLocation").append(div);
 
@@ -256,17 +271,20 @@ function initMap(newVenue, lati, longi, location) {
     center: newVenue
   });
   if (!location) {
+    var musicIcon = "https://png.icons8.com/color/50/000000/musical.png";
     var marker = new google.maps.Marker({
       position: newVenue,
-      map: map
+      map: map,
+      icon: musicIcon
     });
   } else{
     for (var i = 0; i < location.length; i++) {
       location[i]
+      var musicIcon = "https://png.icons8.com/color/50/000000/musical.png";
       var marker = new google.maps.Marker({
         position: newVenue,
         map: map,
-        label: "Venue"
+        icon: musicIcon
       });
 
       for (i = 0; i < location.length; i++) {
