@@ -171,7 +171,7 @@ var yelpfunction=function(){
       var location = [];
       // loop to go log all data in the array
       for (var i = 0; i < data.length; i++) {
-
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         var yelpResultsCard = $("<p>")
         var yelpImage = $("<img>")
         yelpImage.attr("src", data[i].img)
@@ -186,7 +186,7 @@ var yelpfunction=function(){
         $("#yelpResults").append('<a href='+data[i].yelp+' target="_blank"><div class="card text-center yelpCard">' +
           '<img class="card-image-top yelpImage" src="'+data[i].img+'">' +
           '<div class="card-body yelpInfo">' +
-            '<h4 id="yelpName" class="card-title">' + yelpName + '</h4>' +
+            '<h4 id="yelpName" class="card-title">' + yelpName +' ('+labels[i]+') </h4>' +
             '<p id="add1" class="card-text">' + add1 + '</p>' +
             '<p id="add2" class="card-text">' + add2 + '</p>' +
             // '<p id="add3" class="card-text">' + add3 + '</p>' +
@@ -265,13 +265,17 @@ function initMap(newVenue, lati, longi, location) {
       location[i]
       var marker = new google.maps.Marker({
         position: newVenue,
-        map: map
+        map: map,
+        label: "Venue"
       });
 
       for (i = 0; i < location.length; i++) {
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(parseFloat(location[i].latitude), parseFloat(location[i].longitude)),
-          map: map
+          map: map,
+          label: labels[i]
         });
     }
   }
