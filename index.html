@@ -31,6 +31,9 @@
                   <input id="bandName" class="form-control searchInput" type="text" name="bandName" value="" placeholder="Enter your favorite band or artist">
                   <button id="submitBtn" class="btn btn-secondary submitButton"type="button" name="button">See Venues</button>
                 </div>
+                <div id="login">
+                  <img src="./images/offline.png" id ="spotify" class="img-responsive" data-offline="./images/offline.png" data-online="./images/online.png">
+                </div>
             </div>
           </div>
 
@@ -45,6 +48,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript">
+    $.get("/api", function(data){
+      console.log(data);
     $("#submitBtn").on("click", function(event){
         event.preventDefault();
         if($("#bandName").val().trim() !== ""){
@@ -52,7 +57,18 @@
 
           window.location.href = `/bands/${bandname}`;
         }
-    })
+    });
+    if(!data[0]){
+      console.log("offline");
+      $("#spotify").on("click", function(){
+        window.location.href = "/login";
+      });
+    }else{
+      console.log("online");
+      var online = $("#spotify").attr("data-online")
+      $("#spotify").attr("src", online)}
+
+      })
     </script>
   </body>
 </html>
