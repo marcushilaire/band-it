@@ -4,7 +4,6 @@ html {
 
 body {
   background-color: #48a8b6;
-  color: white;
   padding-bottom: 30px;
 }
 
@@ -89,8 +88,21 @@ body {
   overflow: scroll;
   padding-bottom: 10px;
   background-color: white;
-
 }
+  .upcomingEvents h4 {
+    padding: 10px 0px;
+    text-decoration: underline;
+  }
+  .venue {
+    background-color: #48a8b6;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+  }
+  .city {
+    margin-bottom: 5px;
+  }
 
 #artistMap {
   width: 100%;
