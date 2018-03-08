@@ -4,6 +4,7 @@ html {
 }
 
 .resultsBody {
+  width: 100%;
   background-image: url('../images/paisleyBg.png');
   background-position: center;
   padding-bottom: 30px;
@@ -19,6 +20,10 @@ html {
 
 .logoImg {
   border-radius: 50%;
+}
+
+.navbar-toggler-icon {
+  float: right;
 }
 
 
