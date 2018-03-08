@@ -2,11 +2,13 @@ html {
   height: 100%;
   font-family: 'Merriweather Sans', sans-serif;
 }
+
 .navbar-toggler-icon{
   position: absolute!important;
   right: 20px!important;
   top: 45px!important;
 }
+
 .resultsBody {
   width: 100%;
   background-image: url('../images/paisleyBg.png');
@@ -18,7 +20,7 @@ html {
   font-family: 'Merriweather Sans', sans-serif;
   height: 100%;
   position: relative;
-  background-image: url("../images/background.png");
+  background-image: url("../images/racco-bandit.png");
   background-size: cover;
 }
 
@@ -30,7 +32,6 @@ html {
   float: right;
 }
 
-
 .mainContentOverlay {
   height: 100%;
   width: 100%;
@@ -39,7 +40,7 @@ html {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .mainContent {
@@ -94,6 +95,7 @@ html {
     padding: 0;
     margin: 0;
   }
+
 #artistImage {
   padding: 0;
 }
@@ -106,6 +108,7 @@ html {
 #artistLocation {
   color: black;
 }
+
 .venuesList {
   color: black;
   height: 500px;
@@ -140,6 +143,7 @@ html {
  .card {
   width: 100%
 }
+
 .yelpImage {
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
@@ -188,7 +192,7 @@ html {
 @media (max-width: 767px) {
 
 .indexBody {
-  background-image: url("../images/band-it-thin.jpg");
+  background-image: url("../images/bg-mobile.png");
   background-size: cover;
 }
 
@@ -239,4 +243,11 @@ html {
    margin-bottom: 0!important;
  }
  /* end of media for max width 575 */
+}
+
+@media (max-width: 991px) {
+  .indexBody {
+    background-image: url("../images/bg-mobile.png");
+    background-position: center;
+  }
 }
