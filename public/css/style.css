@@ -18,7 +18,7 @@ html {
   font-family: 'Merriweather Sans', sans-serif;
   height: 100%;
   position: relative;
-  background-image: url("../images/band-it.jpg");
+  background-image: url("../images/background.png");
   background-size: cover;
 }
 
@@ -43,7 +43,7 @@ html {
 }
 
 .mainContent {
-  width: 70%;
+  width: 100%;
 }
   .indexBandIt {
     font-family: 'Bungee Outline', cursive;
@@ -51,6 +51,9 @@ html {
     font-size: 4rem;
     font-weight: 900;
     padding-bottom: 1rem;
+    -webkit-animation-duration: 6s;
+    -moz-animation-duration: 6s;
+    -ms-transition-animation-duration: 6s;
   }
   .resultsBandIt {
     font-family: 'Bungee Outline', cursive;
