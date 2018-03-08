@@ -97,7 +97,7 @@ html {
 
 #artistName {
   color: black;
-  background-color: white;
+  background-color: #e9ecefe3;
 }
 
 #artistLocation {
@@ -108,8 +108,8 @@ html {
   height: 500px;
   overflow: scroll;
   padding-bottom: 10px;
-  background-color: white;
-  border-bottom: 15px solid white;
+  background-color: #e9ecefe3;
+  border-bottom: 15px solid #e9ecefe6;
 }
   .upcomingEvents h4 {
     padding: 10px 0px;
