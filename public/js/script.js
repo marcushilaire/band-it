@@ -44,8 +44,23 @@ var bandIs = function (){
         }
         for ( var i =0; i<resultsEvent.length; i++){
             console.log(resultsEvent[i]);
+            var rawDate=resultsEvent[i].datetime.split("T");
+            var dateArr=[];
+            dateArr.push(rawDate[0]);
+            dateArr.push(" Time: ");
+            var time=rawDate[1].split(":");
+            if (time[0]>12){
+              time[0]-=12;
+              rawDate[1]=time.join(":");
+              dateArr.push(rawDate[1]);
+              dateArr.push("pm");
+            }else{
+              dateArr.push(rawDate[1]);
+              dateArr.push("am");
+            }
 
-            var date = resultsEvent[i].datetime;
+            var date = dateArr.join(" ");
+
         // looping through the array of upcoming events
 
 
