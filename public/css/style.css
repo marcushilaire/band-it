@@ -2,7 +2,11 @@ html {
   height: 100%;
   font-family: 'Merriweather Sans', sans-serif;
 }
-
+.navbar-toggler-icon{
+  position: absolute!important;
+  right: 20px!important;
+  top: 45px!important;
+}
 .resultsBody {
   background-image: url('../images/paisleyBg.png');
   background-position: center;
