@@ -3,8 +3,9 @@ html {
   font-family: 'Merriweather Sans', sans-serif;
 }
 
-body {
-  background-color: #48a8b6;
+.resultsBody {
+  background-image: url('../images/paisleyBg.png');
+  background-position: center;
   padding-bottom: 30px;
 }
 
@@ -155,7 +156,7 @@ body {
 #yelpResults {
   padding: 0;
   margin-top: 15px;
-  background-color: #48a8b6;
+  background-image: url('paisleyBg.png');
 }
 
 #yelpName {
