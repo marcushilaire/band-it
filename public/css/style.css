@@ -144,13 +144,12 @@ body {
   margin-top: 15px;
   background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
-  height: 50px;
-  line-height: 50px;
+  height: 70px;
+  line-height: 70px;
   text-align: center;
   font-size: 1.7rem;
   font-family: 'Bungee Outline', cursive;
   font-weight: bold;
-
 }
 
 #yelpResults {
@@ -158,6 +157,7 @@ body {
   margin-top: 15px;
   background-color: #48a8b6;
 }
+
 .yelpCard {
   margin-bottom: .75rem;
 }
@@ -178,8 +178,6 @@ body {
   font-size: 3rem;
   padding-bottom: 0.5rem;
 }
-
-
 
 .mainContent p {
   font-size: 0.8rem;
@@ -210,6 +208,12 @@ body {
    margin: 0;
    padding: : 0;
    border: none;
+ }
+ .resultsBandIt {
+   text-align: center;
+ }
+ .submitButton {
+   margin-top: 10px;
  }
  /* end of media for max width 575 */
 }
