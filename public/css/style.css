@@ -128,14 +128,14 @@ html {
     text-decoration: underline;
   }
   .venue {
-    background-color: #48a8b6!important;
-    color: white;
-    border-radius: 5px;
-    padding: 5px 5px;
+    color: #48a8b6;
+    font-size: 1.3rem;
+    font-weight: bold;
     margin-bottom: 5px;
   }
     .venue:hover {
       cursor:pointer;
+      color: rgba(0, 0, 0, 0.6);
     }
   .city {
     margin-bottom: 5px;
