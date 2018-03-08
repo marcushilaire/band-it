@@ -51,9 +51,9 @@ html {
     font-size: 4rem;
     font-weight: 900;
     padding-bottom: 1rem;
-    -webkit-animation-duration: 6s;
-    -moz-animation-duration: 6s;
-    -ms-transition-animation-duration: 6s;
+    -webkit-animation-duration: 8s;
+    -moz-animation-duration: 8s;
+    -ms-transition-animation-duration: 8s;
   }
   .resultsBandIt {
     font-family: 'Bungee Outline', cursive;
