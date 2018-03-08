@@ -8,6 +8,7 @@ html {
   top: 45px!important;
 }
 .resultsBody {
+  width: 100%;
   background-image: url('../images/paisleyBg.png');
   background-position: center;
   padding-bottom: 30px;
@@ -23,6 +24,10 @@ html {
 
 .logoImg {
   border-radius: 50%;
+}
+
+.navbar-toggler-icon {
+  float: right;
 }
 
 
@@ -137,10 +142,6 @@ html {
   width: 100%;
 }
 
-.yelpInfo {
-  background-color: #f1feed;
-  color: #010101;
-}
 #add1 {
   margin-bottom: 0;
 }
@@ -169,7 +170,8 @@ html {
 }
 
 .yelpCard {
-  margin-bottom: .75rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
 }
 
 .logoFooterLink {
@@ -177,7 +179,7 @@ html {
 }
 
 .logoFooterLink img {
-  border: 3px solid rgba(0, 0, 0, 0.6);
+  border: 10px inset #b38600;
 }
 
 @media (max-width: 767px) {
