@@ -133,8 +133,8 @@ body {
 }
 
 .yelpInfo {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background-color: #f1feed;
+  color: #010101;
 }
 #add1 {
   margin-bottom: 0;
@@ -227,10 +227,6 @@ body {
  }
  .card {
    margin-bottom: 0!important;
- }
- .yelpInfo {
-   background-color: #fff;
-   color: #000;
  }
  /* end of media for max width 575 */
 }
