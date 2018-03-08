@@ -141,16 +141,17 @@ var topTracks= function(id, access_token){
   }, success: function(data) {
       for (var i=0; i<3; i++){
           var topID = data.tracks[i].id;
+          var div = $("<div>").attr("class", "tracks");
           var player = $("<iframe>").attr({
               "src": "https://open.spotify.com/embed/track/" + topID,
-              "width": 300,
-              "height": 170,
               "frameborder": 0,
               "allowtransparency": "true",
               "allow": "encrypted-media",
               "class": "topTracks"
           })
-          $("#dump").append(player);
+          div.append(player);
+          $("#dump").append(div);
+          // $("#dump").append(player);
       }
   }  
   })
