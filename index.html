@@ -8,28 +8,32 @@
     <link href="https://fonts.googleapis.com/css?family=Bungee+Outline|Changa+One|Merriweather+Sans:400,700,800" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href=".public/css/style.css">
 
     <title>Band It</title>
   </head>
-
   <body class="indexBody">
 
     <div class="mainContentOverlay"></div>
       <div class="container h-100 landingContainer">
         <div class="row h-100 align-items-center">
-          <div class="col-12" align=center>
+          <div class="col-4" align=center>
             <div class="mainContent">
-              <h1 class="mb-2 indexBandIt">Band-It</h1>
-              <p class="pb-2">See your favorite bands live. Search their upcoming concerts and get recommendations for bars and restaurants near the concert venue before and after the show.</p>
+              <h1 class="animated rotateIn" id="heading">Band-It</h1>
+              <p class="pb-2">Find your most beloved bands playing in venues near you! Band It will provide you everything you need to create your perfect night!</p>
                 <div class="input-group">
                   <input id="bandName" class="form-control searchInput" type="text" name="bandName" value="" placeholder="Enter your favorite band or artist">
                   <button id="submitBtn" class="btn btn-secondary submitButton"type="button" name="button">See Venues</button>
                 </div>
             </div>
           </div>
+          <div class="col-4" align=center></div>
+          <div class="col-4" align=center></div>
+          
         </div>
       </div>
 
