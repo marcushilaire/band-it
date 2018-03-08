@@ -79,7 +79,66 @@ var bandIs = function (){
 
         }
         yelpfunction();
+        return(keys(bandQuery))
     })
+}
+
+// spotify functionality
+// brings access tokens from server side to client and refreshes them
+var keys = function(bandQuery){
+  var spotifyQuery=bandQuery
+  console.log("clicked")
+  $("#dump").empty();
+  $.get("/api", function(data){
+      console.log(data);
+      var refresh  = data[0].refresh_token;
+  return refreshCall(refresh)
+  })
+  var refreshCall =function(refresh){
+      $.ajax({
+          url: "/refresh_token",
+          data: {
+              "refresh_token": refresh
+          }
+      }).done(function(data){
+          access_token = data.access_token;
+          console.log(access_token)
+      return firstCall(access_token, spotifyQuery)
+  })}
+}
+var firstCall = function(access_token, spotifyQuery){
+  $.ajax({
+  url: 'https://api.spotify.com/v1/search?q=' + spotifyQuery + '&type=Artist',
+  beforeSend: function(xhr) {
+       xhr.setRequestHeader("Authorization", "Bearer " + access_token)
+  }, success: function(data){
+      var id = data.artists.items[0].id;
+      return topTracks(id, access_token);
+
+  }
+  })
+}
+var topTracks= function(id, access_token){ 
+  $.ajax({
+      url: "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=es",
+      beforeSend: function(xhr) {
+          xhr.setRequestHeader("Authorization", "Bearer " + access_token)
+  }, success: function(data) {
+      for (var i=0; i<3; i++){
+          var topID = data.tracks[i].id;
+          var player = $("<iframe>").attr({
+              "src": "https://open.spotify.com/embed/track/" + topID,
+              "width": 300,
+              "height": 380,
+              "frameborder": 0,
+              "allowtransparency": "true",
+              "allow": "encrypted-media" 
+          })
+          // $("#dump").empty();
+          $("#dump").append(player);
+      }
+  }  
+  })
 }
 //var yelpfunction= function(){
   // function that occurs when the user pick a single venue
