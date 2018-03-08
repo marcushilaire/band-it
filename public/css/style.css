@@ -103,6 +103,7 @@ html {
 #artistName {
   color: black;
   background-color: #e9ecefe3;
+  max-height: 380px;
 }
 
 #artistLocation {
