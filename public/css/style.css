@@ -158,6 +158,11 @@ body {
   background-color: #48a8b6;
 }
 
+#yelpName {
+  color: #48a8b6;
+  font-size: 1.7rem;
+}
+
 .yelpCard {
   margin-bottom: .75rem;
 }
@@ -212,8 +217,8 @@ body {
  .resultsBandIt {
    text-align: center;
  }
- .submitButton {
-   margin-top: 10px;
+ .card {
+   margin-bottom: 0!important;
  }
  /* end of media for max width 575 */
 }
