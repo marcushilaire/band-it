@@ -43,13 +43,11 @@ var bandIs = function (){
           alert("There is no concert or event set up for band :"+bandQuery);
         }
         for ( var i =0; i<resultsEvent.length; i++){
-            console.log(resultsEvent[i])
+            console.log(resultsEvent[i]);
 
             var date = resultsEvent[i].datetime;
         // looping through the array of upcoming events
 
-
-            console.log(resultsEvent[i])
 
             var venue = resultsEvent[i].venue;
             var lat = venue.latitude;
@@ -59,6 +57,8 @@ var bandIs = function (){
                 "id": venue.name,
                 "class": "event",
             });
+            var ticket =$("<a class='btn bg-danger'>").text("GET Ticket");
+              ticket.attr({"href": resultsEvent[i].url, "target":"_blank"});
             var showtime = $("<p>").text("Date: " + date);
             var city = $("<p class='city'>").text("City: " +venue.city);
             var name = $("<button class='venueButtons'>").text(venue.name).attr({
@@ -74,7 +74,7 @@ var bandIs = function (){
               initMap(venue.name, venue.latitude, venue.longitude);
             };
             // render the information to the html page, this will be adjusted
-            div.append(city, name, showtime, line);
+            div.append(city, name, showtime, ticket, line);
             // this ajax call works but is currently being appended to a placeholder that does not exist
             $("#artistLocation").append(div);
 
