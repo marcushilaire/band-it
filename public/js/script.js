@@ -27,7 +27,7 @@ var bandIs = function (){
 
       var newName=$("<h1>").text(name);
       $("#artistImage").append(newImage);
-      $("#artistName").append(newName);
+      $("#artistName").prepend(newName);
     });
     //  band is in town api
     $.ajax({
@@ -129,12 +129,12 @@ var topTracks= function(id, access_token){
           var player = $("<iframe>").attr({
               "src": "https://open.spotify.com/embed/track/" + topID,
               "width": 300,
-              "height": 380,
+              "height": 170,
               "frameborder": 0,
               "allowtransparency": "true",
-              "allow": "encrypted-media" 
+              "allow": "encrypted-media",
+              "class": "topTracks"
           })
-          // $("#dump").empty();
           $("#dump").append(player);
       }
   }  
@@ -212,7 +212,7 @@ $("#submitBtn").on("click", function(event){
     if($("#bandName").val().trim() !== ""){
       var bandname = $("#bandName").val().trim();
 
-      window.location.href = `/${bandname}`;
+      window.location.href = `/bands/${bandname}`;
     }
 })
 

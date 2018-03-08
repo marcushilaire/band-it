@@ -25,9 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "./index.html"));
+    console.log(__dirname)
   });
-app.get("/results/:bandName", function(req, res) {
+app.get("/bands/:bandName", function(req, res) {
     res.sendFile(path.join(__dirname, "./results.html"));
+    console.log(__dirname)
   });
 
   // If no matching route is found default to home
