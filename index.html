@@ -33,8 +33,10 @@
                 </div>
             </div>
           </div>
+
           <div class="col-lg-4" align=center></div>
           <div class="col-lg-4" align=center></div>
+
 
         </div>
       </div>
@@ -48,7 +50,7 @@
         if($("#bandName").val().trim() !== ""){
           var bandname = $("#bandName").val().trim();
 
-          window.location.href = `/${bandname}`;
+          window.location.href = `/bands/${bandname}`;
         }
     })
     </script>

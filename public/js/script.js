@@ -153,7 +153,7 @@ $("#submitBtn").on("click", function(event){
     if($("#bandName").val().trim() !== ""){
       var bandname = $("#bandName").val().trim();
 
-      window.location.href = `/${bandname}`;
+      window.location.href = `/bands/${bandname}`;
     }
 })
 
