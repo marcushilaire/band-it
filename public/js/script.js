@@ -24,7 +24,7 @@ var bandIs = function (){
       var image= resultsEvent.image_url;
       var name= resultsEvent.name;
       var newImage=$("<img>").attr({"src": image, "class": "img img-responsive img-fluid"});
-
+      var newAncher=$("<a>").attr({"href": resultsEvent.facebook_page_url, "target": "_blank"});
       var newName=$("<h1>").text(name);
       $("#artistImage").append(newImage);
       $("#artistName").prepend(newName);

@@ -40,7 +40,8 @@ app.get("/bands/:bandName", function(req, res) {
 // yelp search using node
 var apiKey = '-LJE5gdMKh7r6T5o7m7eg3q02j_lbmsiS0GEW57DcF0ucR9PdtP_CGJ1Ceq-JipoX9XyG9oThAb8snqi3bYmS0YLOVxUtHZAdlssf3tHikHmK1jTgJaw8nNjiw6TWnYx';
 var client = yelp.client(apiKey);
-
+//
+// new yelp().client(keys.yelp)
 // link this to search html
 app.post("/yelp", function(req, res){
   // getting param from html
