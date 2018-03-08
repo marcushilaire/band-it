@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  font-family: 'Merriweather Sans', sans-serif;
 }
 
 body {
@@ -58,6 +59,7 @@ body {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   background-color: #48a8b6;
+  text-transform: uppercase;
 }
   .submitButton:hover {
     background-color: #222;
@@ -70,6 +72,7 @@ body {
   z-index: 10;
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 25px;
 }
   .resultsLogo {
     padding: 0 0 0 5px;
@@ -96,6 +99,7 @@ body {
   overflow: scroll;
   padding-bottom: 10px;
   background-color: white;
+  border-bottom: 15px solid white;
 }
   .upcomingEvents h4 {
     padding: 10px 0px;
@@ -130,23 +134,33 @@ body {
 
 .yelpInfo {
   background-color: rgba(0, 0, 0, 0.6);
-  color: white;
+  color: #fff;
 }
 #add1 {
   margin-bottom: 0;
 }
 
+.yelpResultCardsHeader {
+  margin-top: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-family: 'Bungee Outline', cursive;
+  font-weight: bold;
+
+}
+
 #yelpResults {
   padding: 0;
-  margin-top: 20px;
+  margin-top: 15px;
   background-color: #48a8b6;
 }
-/* .card-columns {
-  display: inline-block;
-  break-inside: avoid;
-
-  width: 100%;
-} */
+.yelpCard {
+  margin-bottom: .75rem;
+}
 
 @media (max-width: 767px) {
 
@@ -173,4 +187,29 @@ body {
   margin-bottom: 1rem;
 }
 /* end of @media max-width: 767px */
+}
+
+@media (max-width: 575px) {
+ .navbar {
+   margin-bottom: 0;
+ }
+ .venuesList {
+   height: 250px;
+ }
+ #artistMap {
+   height: 300px;
+ }
+ .yelpResultCardsHeader {
+   margin-top: 0;
+   font-size: 1.5rem;
+ }
+ #yelpResults {
+   margin-top: 0;
+ }
+ .yelpCard {
+   margin: 0;
+   padding: : 0;
+   border: none;
+ }
+ /* end of media for max width 575 */
 }

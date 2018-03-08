@@ -124,7 +124,7 @@ var yelpfunction=function(){
         var yelpPhone = data[i].phone
         var yelpPrice = data[i].price
         var yelpRating = data[i].rating
-        $("#yelpResults").append('<a href='+data[i].yelp+' target="_blank"><div class="card text-center">' +
+        $("#yelpResults").append('<a href='+data[i].yelp+' target="_blank"><div class="card text-center yelpCard">' +
           '<img class="card-image-top yelpImage" src="'+data[i].img+'">' +
           '<div class="card-body yelpInfo">' +
             '<h4 id="yelpName" class="card-title">' + yelpName + '</h4>' +
@@ -132,7 +132,7 @@ var yelpfunction=function(){
             '<p id="add2" class="card-text">' + add2 + '</p>' +
             // '<p id="add3" class="card-text">' + add3 + '</p>' +
             '<p id="yelpPhone" class="card-text">Phone: ' + yelpPhone + '</p>' +
-            '<p id="yelpRating" class="card-text">Rating:' + yelpRating + '</p>' +
+            '<p id="yelpRating" class="card-text">Rating: ' + yelpRating + '</p>' +
             '<p id="yelpPrice" class="card-text">' + yelpPrice + '</p>' +
           '</div>' +
         '</div>' +
