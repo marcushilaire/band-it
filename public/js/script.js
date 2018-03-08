@@ -198,17 +198,20 @@ function initMap(newVenue, lati, longi, location) {
     center: newVenue
   });
   if (!location) {
+    var musicIcon = "https://png.icons8.com/color/50/000000/musical.png";
     var marker = new google.maps.Marker({
       position: newVenue,
-      map: map
+      map: map,
+      icon: musicIcon
     });
   } else{
     for (var i = 0; i < location.length; i++) {
       location[i]
+      var musicIcon = "https://png.icons8.com/color/50/000000/musical.png";
       var marker = new google.maps.Marker({
         position: newVenue,
         map: map,
-        label: "Venue"
+        icon: musicIcon
       });
 
       for (i = 0; i < location.length; i++) {
