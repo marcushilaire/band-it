@@ -76,8 +76,8 @@ var bandIs = function (){
               ticket.attr({"href": resultsEvent[i].url, "target":"_blank"});
             var showtime = $("<p class='date'>").text("Date: " + date);
             var city = $("<p class='city'>").text("City: " +venue.city);
-            var name = $("<button class='btn bg-secondary venueButtons'>").text(venue.name).attr({
-                "class": "venue bg-secondary",
+            var name = $("<p class='venueButtons'>").text(venue.name).attr({
+                "class": "venue",
                 // Venue location information is set to the the data types below
                 "data-venue": venue.name,
                 "data-date": resultsEvent[i].datetime,
