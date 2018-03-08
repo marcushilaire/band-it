@@ -24,10 +24,10 @@ var bandIs = function (){
       var image= resultsEvent.image_url;
       var name= resultsEvent.name;
       var newImage=$("<img>").attr({"src": image, "class": "img img-responsive img-fluid"});
-      var newAncher=$("<a>").attr({"href": resultsEvent.facebook_page_url, "target": "_blank"});
+      var newAnchor=$("<a>").attr({"href": resultsEvent.facebook_page_url, "target": "_blank"});
       var newName=$("<h1>").text(name);
       newAncher.append(newImage);
-      $("#artistImage").append(newAncher);
+      $("#artistImage").append(newAnchor);
       $("#artistName").append(newName);
     });
     //  band is in town api
@@ -57,12 +57,12 @@ var bandIs = function (){
                 "id": venue.name,
                 "class": "event",
             });
-            var ticket =$("<a class='btn bg-danger'>").text("GET Ticket");
+            var ticket =$("<a class='btn bg-secondary getTix'>").text("GET Ticket");
               ticket.attr({"href": resultsEvent[i].url, "target":"_blank"});
-            var showtime = $("<p>").text("Date: " + date);
+            var showtime = $("<p class='date'>").text("Date: " + date);
             var city = $("<p class='city'>").text("City: " +venue.city);
-            var name = $("<button class='venueButtons'>").text(venue.name).attr({
-                "class": "venue",
+            var name = $("<button class='btn bg-secondary venueButtons'>").text(venue.name).attr({
+                "class": "venue bg-secondary",
                 // Venue location information is set to the the data types below
                 "data-venue": venue.name,
                 "data-date": resultsEvent[i].datetime,
