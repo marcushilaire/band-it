@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 var yelp = require('yelp-fusion');
 var express= require("express");
 var bodyParser = require("body-parser")
@@ -5,11 +7,12 @@ var path = require("path");
 var fs =require("fs");
 var request = require("request");
 var querystring= require("querystring");
+var keys= require("./keys.js");
 var app = express();
 
 // required spotify information
-var client_id = '91fc8fe62de6433e84c880e514183820'; // Your client id
-var client_secret = '4e101632b354456989bab719b97a673e'; // Your secret
+var client_id = keys.spotify.id; // Your client id
+var client_secret = keys.spotify.secret; // Your secret
 var redirect_uri = 'http://localhost:8080/callback'; // Your redirect uri
 var tokens=[]
 
@@ -38,9 +41,8 @@ app.get("/bands/:bandName", function(req, res) {
 //   });
 
 // yelp search using node
-var apiKey = '-LJE5gdMKh7r6T5o7m7eg3q02j_lbmsiS0GEW57DcF0ucR9PdtP_CGJ1Ceq-JipoX9XyG9oThAb8snqi3bYmS0YLOVxUtHZAdlssf3tHikHmK1jTgJaw8nNjiw6TWnYx';
-var client = yelp.client(apiKey);
-//
+
+var client = yelp.client(keys.yelp.apiKey);
 // new yelp().client(keys.yelp)
 // link this to search html
 app.post("/yelp", function(req, res){
@@ -100,7 +102,7 @@ app.get("/api", function (req, res){
 });
 // generates and saves access and refresh tokens
 app.get('/callback', function(req, res) {
-  
+
   var code = req.query.code || null;
 
     var authOptions = {
