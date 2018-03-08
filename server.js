@@ -13,7 +13,7 @@ var app = express();
 // required spotify information
 var client_id = keys.spotify.id; // Your client id
 var client_secret = keys.spotify.secret; // Your secret
-var redirect_uri = 'http://localhost:8080/callback'; // Your redirect uri
+var redirect_uri = 'https://get-band-it.herokuapp.com/callback'; // Your redirect uri
 var tokens=[]
 
 
