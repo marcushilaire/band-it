@@ -62,9 +62,9 @@
         }
     });
     if(!localStorage.getItem("login")){
-      $.post("/api").then(function(data){
-        data=[]
-      });
+      // $.post("/api").then(function(data){
+      //   data=[]
+      // });
       console.log("offline");
       $("#spotify").on("click", function(){
         window.location.href = "/login";
