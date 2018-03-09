@@ -68,7 +68,7 @@
       console.log("offline");
       $("#spotify").on("click", function(){
         window.location.href = "/login";
-      localStorage.setItem("login", "online");        
+      localStorage.setItem("login", "online");
       });
     }else{
       console.log("online");
@@ -78,10 +78,10 @@
       $("#spotify").on("click", function(){
         localStorage.clear()
         $("#spotify").attr("src", offline)
-        $.post("/api").then(function(data){
-        data=[]
-        });
-        window.location.href="/"        
+        // $.post("/api").then(function(data){
+        // data=[]
+        // });
+        window.location.href="/"
       })
       }
       })
