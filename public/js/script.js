@@ -42,7 +42,7 @@ var bandIs = function (){
           alert("There is no concert or event set up for band :"+bandQuery);
         }
         for ( var i =0; i<resultsEvent.length; i++){
-            console.log(resultsEvent[i]);
+
             var rawDate=resultsEvent[i].datetime.split("T");
             var dateArr=[];
             dateArr.push(rawDate[0]);
@@ -102,10 +102,10 @@ var bandIs = function (){
 // brings access tokens from server side to client and refreshes them
 var keys = function(bandQuery){
   var spotifyQuery=bandQuery
-  console.log("clicked")
+
   $("#dump").empty();
   $.get("/api", function(data){
-      console.log(data);
+
       var refresh  = data[0].refresh_token;
   return refreshCall(refresh)
   })
@@ -117,7 +117,6 @@ var keys = function(bandQuery){
           }
       }).done(function(data){
           access_token = data.access_token;
-          console.log(access_token)
       return firstCall(access_token, spotifyQuery)
   })}
 }
@@ -166,11 +165,6 @@ var yelpfunction=function(){
     var lati = $(this).attr("data-lat")
     var longi = $(this).attr("data-long")
     var userSelects="bar, restaurant"; //have user select which catagory to select in html so they can choose what stores
-
-    console.log(newVenue);
-
-    console.log(lati);
-    console.log(longi);
     // clear yelp results on every click of venue
     $("#yelpResults").empty()
     initMap(newVenue, lati, longi)
@@ -183,7 +177,6 @@ var yelpfunction=function(){
     }
     $.post("/yelp", newSearchRequest, function(data){
       // console loging all the data as array and json object
-      console.log(data);
       var location = [];
       // loop to go log all data in the array
       for (var i = 0; i < data.length; i++) {
@@ -215,7 +208,6 @@ var yelpfunction=function(){
         location.push(data[i].coordinates);
 
       }
-      console.log(location);
       initMap(newVenue, lati, longi, location);
       // use this to get google map intergration and info we want to give out as output for all the store info
     });
@@ -261,7 +253,6 @@ function initMapFirst() {
 //* Google Maps JS *//
 // get goole map function with marker set desired location
 function initMap(newVenue, lati, longi, location) {
-  console.log(location);
 
 
   // var lati = 38.88848049
@@ -301,37 +292,7 @@ function initMap(newVenue, lati, longi, location) {
 }
     // icon: image,
 
-// content of clicking on the map marker.  Populate from yelp data later.
-  var contentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-      '<div id="bodyContent">'+
-      '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-      'sandstone rock formation in the southern part of the '+
-      'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-      'south west of the nearest large town, Alice Springs; 450&#160;km '+
-      '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-      'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-      'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-      'Aboriginal people of the area. It has many springs, waterholes, '+
-      'rock caves and ancient paintings. Uluru is listed as a World '+
-      'Heritage Site.</p>'+
-      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-      'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-      '(last visited June 22, 2009).</p>'+
-      '</div>'+
-      '</div>';
 
-  var infowindow = new google.maps.InfoWindow({
-    content: contentString,
-    maxWidth: 400
-
-  })
-// listen for the music marker click
-  marker.addListener('click', function() {
-    infowindow.open(map, marker)
-  })
 }
 initMap()
 
@@ -347,32 +308,3 @@ initMap()
         });
         markers.push(marker);
       }
-
-// Removes the markers from the map, but keeps them in the array.
-      function clearMarkers() {
-        setMapOnAll(null);
-      }
-
-      // Shows any markers currently in the array.
-      function showMarkers() {
-        setMapOnAll(map);
-      }
-
-      // Deletes all markers in the array by removing references to them.
-      function deleteMarkers() {
-        clearMarkers();
-        markers = [];
-      }
-
-      // Sets the map on all markers in the array.
-      function setMapOnAll(map) {
-        for (var i = 0; i < markers.length; i++) {
-          markers[i].setMap(map);
-        }
-      }
-
- // add markers to maps
- function addMarkers() {
-
- }
-//yelpfunction();
