@@ -13,8 +13,8 @@ var app = express();
 // required spotify information
 var client_id = keys.spotify.id; // Your client id   //make .env
 var client_secret = keys.spotify.secret; // Your secret   //make .env
-var redirect_uri = 'https://get-band-it.herokuapp.com/callback'; // Your redirect uri
-// var redirect_uri = 'https://localhost:8080/callback';  //need this to use test it locally
+// var redirect_uri = 'https://get-band-it.herokuapp.com/callback'; // Your redirect uri
+var redirect_uri = 'http://localhost:8080/callback';  //need this to use test it locally
 var tokens=[]
 
 
@@ -101,6 +101,10 @@ app.get('/login', function(req, res) {
 app.get("/api", function (req, res){
   res.json(tokens);
 });
+app.post("/api", function(req, res){
+var login=req.body
+tokens=login;
+})
 // generates and saves access and refresh tokens
 app.get('/callback', function(req, res) {
 
