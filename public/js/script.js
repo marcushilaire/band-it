@@ -25,8 +25,9 @@ var bandIs = function (){
       var name= resultsEvent.name;
       var newImage=$("<img>").attr({"src": image, "class": "img img-responsive img-fluid"});
       var newAncher=$("<a>").attr({"href": resultsEvent.facebook_page_url, "target": "_blank"});
+      newAncher.append(newImage);
       var newName=$("<h1>").text(name);
-      $("#artistImage").append(newImage);
+      $("#artistImage").append(newAncher);
       $("#artistName").prepend(newName);
     });
     //  band is in town api
