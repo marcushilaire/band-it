@@ -13,7 +13,8 @@ var app = express();
 // required spotify information
 var client_id = keys.spotify.id; // Your client id   //make .env
 var client_secret = keys.spotify.secret; // Your secret   //make .env
-var redirect_uri = 'https://get-band-it.herokuapp.com/callback'; // Your redirect uri
+// var redirect_uri = 'https://get-band-it.herokuapp.com/callback'; // Your redirect uri
+var redirect_uri = 'https://www.catchbandit.com/callback'; // Your redirect uri
 // var redirect_uri = 'https://localhost:8080/callback';  //need this to use test it locally
 var tokens=[]
 

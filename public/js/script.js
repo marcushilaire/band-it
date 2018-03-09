@@ -133,7 +133,7 @@ var firstCall = function(access_token, spotifyQuery){
   }
   })
 }
-var topTracks= function(id, access_token){ 
+var topTracks= function(id, access_token){
   $.ajax({
       url: "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=es",
       beforeSend: function(xhr) {
@@ -153,7 +153,7 @@ var topTracks= function(id, access_token){
           $("#dump").append(div);
           // $("#dump").append(player);
       }
-  }  
+  }
   })
 }
 //var yelpfunction= function(){
