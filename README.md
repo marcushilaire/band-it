@@ -31,4 +31,5 @@ by: Adrian Kyzer, WooJoo Byun, Marcus Hilaire, and Ian Oh
 * Overnight Accommodations Booking
 * Schedule Planner
 * Restaurant/Bar Deals
+* User accounts and database integration
 
